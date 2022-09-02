@@ -15,6 +15,7 @@ export const config = {
 	'logChannel': 0n, // Discord channel ID where the bot should put startup messages and other error messages needed
 	'reportChannel': 0n, // Discord channel ID where reports will be sent when using the built-in report command
 	'devServer': 0n, // Discord guild ID where testing of indev features/commands will be handled, used in conjuction with the DEVMODE bool in mod.ts
+	'ownerId': 0n, // Discord user ID of the bot owner
 };
 
 export default config;
