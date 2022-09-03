@@ -13,5 +13,5 @@ events.guildDelete = eventHandlers.guildDelete;
 events.messageCreate = eventHandlers.messageCreate;
 
 if (DEVMODE) {
-	events.debug = eventHandlers.debug
+	events.debug = eventHandlers.debug;
 }

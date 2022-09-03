@@ -2,8 +2,8 @@ import config from '../../config.ts';
 import { LOCALMODE } from '../../flags.ts';
 import {
 	// Discordeno deps
-	Bot,
 	ActivityTypes,
+	Bot,
 	editBotNickname,
 	editBotStatus,
 	// Log4Deno deps

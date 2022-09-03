@@ -2,11 +2,12 @@ import config from '../../config.ts';
 import {
 	// Discordeno deps
 	Bot,
-	Message,
 	botId,
 	// Log4Deno deps
 	log,
 	LT,
+	// Discordeno deps
+	Message,
 } from '../../deps.ts';
 import commands from '../commands/_index.ts';
 import utils from '../utils.ts';

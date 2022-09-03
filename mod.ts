@@ -8,10 +8,10 @@ import config from './config.ts';
 import { DEBUG, LOCALMODE } from './flags.ts';
 import {
 	// Discordeno deps
+	createBot,
 	initLog,
 	Intents,
 	startBot,
-	createBot,
 } from './deps.ts';
 // import { dbClient, ignoreList } from './src/db.ts';
 import { events } from './src/events.ts';
