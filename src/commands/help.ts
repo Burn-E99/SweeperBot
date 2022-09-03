@@ -9,9 +9,6 @@ import { infoColor2 } from '../commandUtils.ts';
 import utils from '../utils.ts';
 
 export const help = (bot: Bot, message: Message) => {
-	// Light telemetry to see how many times a command is being run
-	// dbClient.execute(queries.callIncCnt('help')).catch((e) => utils.commonLoggers.dbError('htlp.ts:15', 'call sproc INC_CNT on', e));
-
 	bot.helpers.sendMessage(message.channelId, {
 		embeds: [{
 			color: infoColor2,

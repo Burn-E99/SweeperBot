@@ -16,8 +16,5 @@ export const messageUpdate = (bot: Bot, message: Message) => {
 		if (config.pollChannels.includes(message.channelId)) {
 			functions.pollReactions(bot, message, true);
 		}
-
-		// return as we are done handling this command
-		return;
 	}
 };
