@@ -10,6 +10,7 @@ import {
 	Message,
 } from '../../deps.ts';
 import commands from '../commands/_index.ts';
+import functions from '../functions/_index.ts';
 import utils from '../utils.ts';
 
 export const messageCreate = (bot: Bot, message: Message) => {
@@ -21,6 +22,10 @@ export const messageCreate = (bot: Bot, message: Message) => {
 		// Handle @bot messages
 		if (message.mentionedUserIds[0] === botId && (message.content.trim().startsWith(`<@${botId}>`) || message.content.trim().startsWith(`<@!${botId}>`))) {
 			commands.handleMentions(bot, message);
+		}
+
+		if (config.pollChannels.includes(message.channelId)) {
+			functions.pollReactions(bot, message);
 		}
 
 		// return as we are done handling this command

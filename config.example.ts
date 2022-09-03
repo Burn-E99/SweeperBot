@@ -1,6 +1,6 @@
 export const config = {
 	'name': 'Sweeper Bot', // Name of the bot
-	'version': '0.1.0', // Version of the bot
+	'version': '0.2.0', // Version of the bot
 	'token': 'the_bot_token', // Discord API Token for this bot
 	'localtoken': 'local_testing_token', // Discord API Token for a secondary OPTIONAL testing bot, THIS MUST BE DIFFERENT FROM "token"
 	'prefix': 's!', // Prefix for all commands
@@ -16,6 +16,7 @@ export const config = {
 	'reportChannel': 0n, // Discord channel ID where reports will be sent when using the built-in report command
 	'devServer': 0n, // Discord guild ID where testing of indev features/commands will be handled, used in conjuction with the DEVMODE bool in mod.ts
 	'ownerId': 0n, // Discord user ID of the bot owner
+	'pollChannels': [], // List of Discord channel IDs that are to be managed by the pollReaction system
 };
 
 export default config;
