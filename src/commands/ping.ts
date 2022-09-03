@@ -1,7 +1,6 @@
-// import { dbClient, queries } from '../db.ts';
 import {
-	Bot,
 	// Discordeno deps
+	Bot,
 	Message,
 } from '../../deps.ts';
 import { generatePing } from '../commandUtils.ts';

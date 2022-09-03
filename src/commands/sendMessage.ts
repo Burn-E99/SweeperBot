@@ -1,9 +1,7 @@
-// import { dbClient, queries } from '../db.ts';
 import {
+	// Discordeno deps
 	Bot,
-	// Discordeno deps
 	Message,
-	// Discordeno deps
 	sendMessage,
 } from '../../deps.ts';
 import { failColor, successColor } from '../commandUtils.ts';

@@ -1,6 +1,6 @@
 import config from '../../config.ts';
-// import { dbClient, queries } from '../db.ts';
 import {
+	// Discordeno deps
 	Bot,
 	// Log4Deno deps
 	log,
