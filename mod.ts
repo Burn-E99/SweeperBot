@@ -14,7 +14,7 @@ import {
 	createBot,
 } from './deps.ts';
 // import { dbClient, ignoreList } from './src/db.ts';
-import { events } from './src/eventHandlers.ts';
+import { events } from './src/events.ts';
 
 // Initialize logging client with folder to use for logs, needs --allow-write set on Deno startup
 initLog('logs', DEBUG);
