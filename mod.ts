@@ -22,7 +22,7 @@ initLog('logs', DEBUG);
 // Start up the Discord Bot
 const bot = createBot({
 	token: LOCALMODE ? config.localtoken : config.token,
-	intents: Intents.MessageContent | Intents.GuildMessages | Intents.DirectMessages | Intents.Guilds,
+	intents: Intents.MessageContent | Intents.GuildMessages | Intents.DirectMessages | Intents.Guilds | Intents.GuildMessageReactions,
 	events,
 });
 

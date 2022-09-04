@@ -4,7 +4,7 @@ import config from './config.ts';
 import { LOCALMODE } from './flags.ts';
 export const botId = getBotIdFromToken(LOCALMODE ? config.localtoken : config.token);
 
-export { ActivityTypes, createBot, editBotNickname, editBotStatus, Intents, sendMessage, startBot } from 'https://deno.land/x/discordeno@13.0.0/mod.ts';
+export { ActivityTypes, createBot, editBotNickname, editBotStatus, Intents, sendMessage, startBot, getReactions } from 'https://deno.land/x/discordeno@13.0.0/mod.ts';
 
 export type { Bot, CreateMessage, Emoji, EventHandlers, Guild, Member, Message, User } from 'https://deno.land/x/discordeno@13.0.0/mod.ts';
 
