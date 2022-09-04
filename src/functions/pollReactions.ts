@@ -1,3 +1,4 @@
+import config from '../../config.ts';
 import {
 	// Discordeno deps
 	Bot,
@@ -11,7 +12,7 @@ export const pollReactions = async (bot: Bot, message: Message, update = false) 
 		// Emoji RegExp
 		const unicodeEmojis = '(\\p{Emoji_Presentation}|\\p{Extended_Pictographic})';
 		const unicodeEmojiRX = `(${unicodeEmojis}(\u200d${unicodeEmojis})*)`;
-		const discordEmojiRX = '(:[a-zA-Z\\d_]+:\\d+)';
+		const discordEmojiRX = '(a?:[a-zA-Z\\d_]+:\\d+)';
 		const allEmojiRX = new RegExp(`${unicodeEmojiRX}|${discordEmojiRX}`, 'gu');
 
 		// Get list of emojis in message
@@ -28,15 +29,24 @@ export const pollReactions = async (bot: Bot, message: Message, update = false) 
 					if (reaction.emoji.name) {
 						// Make emoji name that matches our allEmojis array format
 						const emojiName = reaction.emoji.id ? `:${reaction.emoji.name}:${reaction.emoji.id}` : reaction.emoji.name;
-						if (!allEmojis.includes(emojiName)) {
-							bot.helpers.deleteReaction(message.channelId, message.id, emojiName).catch((e: Error) => utils.commonLoggers.reactionDeleteError('pollReactions.ts:32', message, e, emojiName));
-						}
+						await bot.helpers.deleteReaction(message.channelId, message.id, emojiName).catch((e: Error) => utils.commonLoggers.reactionDeleteError('pollReactions.ts:32', message, e, emojiName));
 					}
 				}
 			}
 		}
 
 		// Finally, add all reactions to the message
-		bot.helpers.addReactions(message.channelId, message.id, allEmojis, true).catch((e: Error) => utils.commonLoggers.reactionAddError('pollReactions.ts:40', message, e, allEmojis.toString()));
+		for (const emoji of allEmojis) {
+			await bot.helpers.addReaction(message.channelId, message.id, emoji).catch(async (_err) => {
+				try {
+					const [animated, emojiName, emojiId] = emoji.split(':');
+					const newEmoji = await bot.helpers.createEmoji(config.devServer, {name: emojiName, image: `https://cdn.discordapp.com/emojis/${emojiId}.${animated ? 'gif' : 'webp'}`})
+					await bot.helpers.addReaction(message.channelId, message.id, `:${newEmoji.name}:${newEmoji.id}`);
+					await bot.helpers.deleteEmoji(config.devServer, newEmoji.id || 0n);
+				} catch (e) {
+					utils.commonLoggers.reactionAddError('pollReactions.ts:45', message, e, emoji);
+				}
+			});
+		}
 	}
 };

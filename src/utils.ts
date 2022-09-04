@@ -19,8 +19,8 @@ const jsonStringifyBig = (input: any) => {
 const genericLogger = (level: LT, message: string) => log(level, message);
 const messageEditError = (location: string, message: Message | string, err: Error) =>
 	genericLogger(LT.ERROR, `${location} | Failed to edit message: ${jsonStringifyBig(message)} | Error: ${err.name} - ${err.message}`);
-	const messageGetError = (location: string, message: Message | string, err: Error) =>
-		genericLogger(LT.ERROR, `${location} | Failed to get message: ${jsonStringifyBig(message)} | Error: ${err.name} - ${err.message}`);
+const messageGetError = (location: string, message: Message | string, err: Error) =>
+	genericLogger(LT.ERROR, `${location} | Failed to get message: ${jsonStringifyBig(message)} | Error: ${err.name} - ${err.message}`);
 const messageSendError = (location: string, message: Message | string, err: Error) =>
 	genericLogger(LT.ERROR, `${location} | Failed to send message: ${jsonStringifyBig(message)} | Error: ${err.name} - ${err.message}`);
 const messageDeleteError = (location: string, message: Message | string, err: Error) =>

@@ -4,6 +4,7 @@ import { guildDelete } from './guildDelete.ts';
 import { debug } from './debug.ts';
 import { messageCreate } from './messageCreate.ts';
 import { messageUpdate } from './messageUpdate.ts';
+import { reactionAdd } from './reactionAdd.ts';
 
 export default {
 	ready,
@@ -12,4 +13,5 @@ export default {
 	debug,
 	messageCreate,
 	messageUpdate,
+	reactionAdd,
 };

@@ -10,10 +10,11 @@ import {
 	Message,
 } from '../../deps.ts';
 import commands from '../commands/_index.ts';
+import { pollReactions } from '../functions/pollReactions.ts';
 import functions from '../functions/_index.ts';
 import utils from '../utils.ts';
 
-export const messageCreate = (bot: Bot, message: Message) => {
+export const messageCreate = async (bot: Bot, message: Message) => {
 	// Ignore all other bots
 	if (message.isFromBot) return;
 

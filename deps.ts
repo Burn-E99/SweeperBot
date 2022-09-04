@@ -6,7 +6,7 @@ export const botId = getBotIdFromToken(LOCALMODE ? config.localtoken : config.to
 
 export { ActivityTypes, createBot, editBotNickname, editBotStatus, Intents, sendMessage, startBot } from 'https://deno.land/x/discordeno@13.0.0/mod.ts';
 
-export type { Bot, CreateMessage, EventHandlers, Guild, Message } from 'https://deno.land/x/discordeno@13.0.0/mod.ts';
+export type { Bot, CreateMessage, Emoji, EventHandlers, Guild, Member, Message, User } from 'https://deno.land/x/discordeno@13.0.0/mod.ts';
 
 export { Client } from 'https://deno.land/x/mysql@v2.10.2/mod.ts';
 
