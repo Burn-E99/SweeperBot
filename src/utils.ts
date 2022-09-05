@@ -1,9 +1,3 @@
-/* The Artificer was built in memory of Babka
- * With love, Ean
- *
- * December 21, 2020
- */
-
 import {
 	// Log4Deno deps
 	log,
