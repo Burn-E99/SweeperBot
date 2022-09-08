@@ -13,7 +13,7 @@ export const reactionAdd = async (bot: Bot, payload: ReactionAdd) => {
 			const message = await bot.helpers.getMessage(payload.channelId, payload.messageId);
 			const onlyOneWordRX = /(only one)/g
 			if (message.content.toLowerCase().includes('clan poll') && message.content.toLowerCase().match(onlyOneWordRX)?.length) {
-				functions.onlyOneReaction(bot, message);
+				// functions.onlyOneReaction(bot, message);
 
 				// bot.helpers.getReactions()
 			}
