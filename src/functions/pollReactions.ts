@@ -40,7 +40,7 @@ export const pollReactions = async (bot: Bot, message: Message, update = false) 
 			await bot.helpers.addReaction(message.channelId, message.id, emoji).catch(async (_err) => {
 				try {
 					const [animated, emojiName, emojiId] = emoji.split(':');
-					const newEmoji = await bot.helpers.createEmoji(config.devServer, {name: emojiName, image: `https://cdn.discordapp.com/emojis/${emojiId}.${animated ? 'gif' : 'webp'}`})
+					const newEmoji = await bot.helpers.createEmoji(config.devServer, { name: emojiName, image: `https://cdn.discordapp.com/emojis/${emojiId}.${animated ? 'gif' : 'webp'}` });
 					await bot.helpers.addReaction(message.channelId, message.id, `:${newEmoji.name}:${newEmoji.id}`);
 					await bot.helpers.deleteEmoji(config.devServer, newEmoji.id || 0n);
 				} catch (e) {

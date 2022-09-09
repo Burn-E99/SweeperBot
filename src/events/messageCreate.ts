@@ -82,17 +82,6 @@ export const messageCreate = async (bot: Bot, message: Message) => {
 				commands.sendMessage(bot, message, args);
 			}
 			break;
-		// case 'emoji-test':
-		// 	const test = await bot.helpers.getMessage(413640605491658754n, 1016090989816987701n);
-		// 	console.log(test)
-		// 	if (test.reactions && test.reactions.length) {
-		// 		console.log(test.reactions[0])
-		// 		const what = `${test.reactions[0].emoji.name}${test.reactions[0].emoji.id ? `:${test.reactions[0].emoji.id}` : ''}`;
-		// 		console.log(what)
-		// 		await getReactions(bot, 413640605491658754n, 1016090989816987701n, what)
-		// 	}
-		// 	// bot.helpers
-		// 	break;
 		default:
 			// Non-standard commands
 			console.log(`${command} WIP`);
