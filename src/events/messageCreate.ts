@@ -3,20 +3,18 @@ import {
 	// Discordeno deps
 	Bot,
 	botId,
+	getReactions,
 	// Log4Deno deps
 	log,
 	LT,
 	// Discordeno deps
-	Message,getReactions,
+	Message,
 } from '../../deps.ts';
 import commands from '../commands/_index.ts';
 import functions from '../functions/_index.ts';
 import utils from '../utils.ts';
 
 export const messageCreate = async (bot: Bot, message: Message) => {
-	// Ignore all other bots
-	if (message.isFromBot) return;
-
 	// Ignore all messages that are not commands
 	if (message.content.indexOf(config.prefix) !== 0) {
 		// Handle @bot messages
@@ -29,12 +27,15 @@ export const messageCreate = async (bot: Bot, message: Message) => {
 		}
 
 		if (config.raidCheckpointChannel.includes(message.channelId)) {
-			console.log(message);
+			functions.cleanRaidCheckpointChannel(bot, message.channelId);
 		}
 
 		// return as we are done handling this command
 		return;
 	}
+
+	// Ignore all other bots
+	if (message.isFromBot) return;
 
 	log(LT.LOG, `Handling ${config.prefix}command message: ${utils.jsonStringifyBig(message)}`);
 
@@ -81,7 +82,7 @@ export const messageCreate = async (bot: Bot, message: Message) => {
 				commands.sendMessage(bot, message, args);
 			}
 			break;
-		// case 'test':
+		// case 'emoji-test':
 		// 	const test = await bot.helpers.getMessage(413640605491658754n, 1016090989816987701n);
 		// 	console.log(test)
 		// 	if (test.reactions && test.reactions.length) {
