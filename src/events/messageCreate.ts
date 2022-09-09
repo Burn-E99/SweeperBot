@@ -3,7 +3,6 @@ import {
 	// Discordeno deps
 	Bot,
 	botId,
-	getReactions,
 	// Log4Deno deps
 	log,
 	LT,
