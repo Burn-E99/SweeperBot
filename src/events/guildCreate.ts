@@ -9,15 +9,15 @@ import {
 	// Discordeno deps
 	sendMessage,
 } from '../../deps.ts';
-import { successColor } from '../commandUtils.ts';
+import { infoColor1 } from '../commandUtils.ts';
 import utils from '../utils.ts';
 
 export const guildCreate = (bot: Bot, guild: Guild) => {
 	log(LT.LOG, `Handling joining guild ${utils.jsonStringifyBig(guild)}`);
 	sendMessage(bot, config.logChannel, {
 		embeds: [{
-			title: 'New Guild Joined!',
-			color: successColor,
+			title: 'Guild Joined!',
+			color: infoColor1,
 			fields: [
 				{
 					name: 'Name:',

@@ -4,7 +4,7 @@ import {
 	// Discordeno deps
 	ActivityTypes,
 	Bot,
-	editBotNickname,
+	editBotMember,
 	editBotStatus,
 	// Log4Deno deps
 	log,
@@ -46,7 +46,7 @@ export const ready = (bot: Bot) => {
 
 	// setTimeout added to make sure the startup message does not error out
 	setTimeout(() => {
-		LOCALMODE && editBotNickname(bot, config.devServer, { nick: `LOCAL - ${config.name}` });
+		LOCALMODE && editBotMember(bot, config.devServer, { nick: `LOCAL - ${config.name}` });
 		editBotStatus(bot, {
 			activities: [{
 				name: 'Booting Complete',
