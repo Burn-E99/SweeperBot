@@ -44,11 +44,6 @@ export const messageCreate = async (bot: Bot, message: Message) => {
 
 	// All commands below here
 	switch (command) {
-		case 'ping':
-			// s!ping
-			// Its a ping test, what else do you want.
-			commands.ping(bot, message);
-			break;
 		case 'help':
 		case 'h':
 		case '?':
