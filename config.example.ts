@@ -1,6 +1,6 @@
 export const config = {
 	'name': 'Sweeper Bot', // Name of the bot
-	'version': '0.4.1', // Version of the bot
+	'version': '0.4.2', // Version of the bot
 	'token': 'the_bot_token', // Discord API Token for this bot
 	'localtoken': 'local_testing_token', // Discord API Token for a secondary OPTIONAL testing bot, THIS MUST BE DIFFERENT FROM "token"
 	'prefix': 's!', // Prefix for all commands
