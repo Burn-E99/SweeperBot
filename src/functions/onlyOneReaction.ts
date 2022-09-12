@@ -20,7 +20,7 @@ export const onlyOneReaction = async (bot: Bot, payload: ReactionAdd, message: M
 			const otherEmoji = emojiName(reaction.emoji);
 
 			if (newEmoji !== otherEmoji) {
-				bot.helpers.deleteUserReaction(message.channelId, message.id, payload.userId, otherEmoji).catch((e) =>
+				bot.helpers.deleteUserReaction(message.channelId, message.id, payload.userId, otherEmoji).catch((e: Error) =>
 					utils.commonLoggers.reactionDeleteError('onlyOneReaction.ts:23', message, e, otherEmoji)
 				);
 			}
