@@ -2,7 +2,7 @@ import config from '../../config.ts';
 import {
 	// Discordeno deps
 	Bot,
-	botId,
+	sweeperBotIds,
 } from '../../deps.ts';
 import { ReactionAdd } from '../types/eventTypes.ts';
 import utils from '../utils.ts';
@@ -10,7 +10,7 @@ import functions from '../functions/_index.ts';
 
 export const reactionAdd = async (bot: Bot, payload: ReactionAdd) => {
 	// Ignore self
-	if (botId === payload.userId) return;
+	if (sweeperBotIds.includes(payload.userId)) return;
 
 	if (config.pollChannels.includes(payload.channelId)) {
 		try {
