@@ -29,7 +29,7 @@ export const pollReactions = async (bot: Bot, message: Message, update = false) 
 					if (reaction.emoji.name) {
 						// Make emoji name that matches our allEmojis array format
 						const emojiName = reaction.emoji.id ? `:${reaction.emoji.name}:${reaction.emoji.id}` : reaction.emoji.name;
-						await bot.helpers.deleteReaction(message.channelId, message.id, emojiName).catch((e: Error) => utils.commonLoggers.reactionDeleteError('pollReactions.ts:32', message, e, emojiName));
+						await bot.helpers.deleteReactionsEmoji(message.channelId, message.id, emojiName).catch((e: Error) => utils.commonLoggers.reactionDeleteError('pollReactions.ts:32', message, e, emojiName));
 					}
 				}
 			}

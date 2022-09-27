@@ -1,0 +1,14 @@
+[Unit]
+Description=Sweeper Bot Discord Bot
+Documentation=https://github.com/Burn-E99/SweeperBot
+After=network.target
+
+[Service]
+Type=simple
+PIDFile=/run/deno.pid
+ExecStart=/root/.deno/bin/deno run --allow-write=./logs/ --allow-net .\mod.ts
+RestartSec=60
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
