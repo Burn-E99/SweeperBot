@@ -10,9 +10,9 @@ import utils from '../utils.ts';
 export const pollReactions = async (bot: Bot, message: Message, update = false) => {
 	if (message.content.toLowerCase().includes('clan poll')) {
 		// Emoji RegExp
-		const unicodeEmojis = '(\\p{Emoji_Presentation}|\\p{Extended_Pictographic})';
-		const unicodeEmojiRX = `(${unicodeEmojis}(\u200d${unicodeEmojis})*)`;
+		const unicodeEmojiRX = `(\\p{RI}\\p{RI}|\\p{Emoji}(\\p{EMod}+|\u{FE0F}\u{20E3}?|[\u{E0020}-\u{E007E}]+\u{E007F})?(\u{200D}\\p{Emoji}(\\p{EMod}+|\u{FE0F}\u{20E3}?|[\u{E0020}-\u{E007E}]+\u{E007F})?)+|\\p{EPres}(\\p{EMod}+|\u{FE0F}\u{20E3}?|[\u{E0020}-\u{E007E}]+\u{E007F})?|\\p{Emoji}(\\p{EMod}+|\u{FE0F}\u{20E3}?|[\u{E0020}-\u{E007E}]+\u{E007F}))`;
 		const discordEmojiRX = '(a?:[a-zA-Z\\d_]+:\\d+)';
+
 		const allEmojiRX = new RegExp(`${unicodeEmojiRX}|${discordEmojiRX}`, 'gu');
 
 		// Get list of emojis in message
