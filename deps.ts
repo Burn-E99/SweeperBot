@@ -9,6 +9,6 @@ export { ActivityTypes, createBot, editBotMember, editBotStatus, getReactions, I
 
 export type { Bot, CreateMessage, Emoji, EventHandlers, Guild, Member, Message, User } from 'https://deno.land/x/discordeno@16.0.1/mod.ts';
 
-export { Client } from 'https://deno.land/x/mysql@v2.10.2/mod.ts';
+export { Client } from 'https://deno.land/x/mysql@v2.12.1/mod.ts';
 
-export { initLog, log, LogTypes as LT } from 'https://raw.githubusercontent.com/Burn-E99/Log4Deno/V1.1.1/mod.ts';
+export { initLog, log, LogTypes as LT } from 'https://raw.githubusercontent.com/Burn-E99/Log4Deno/V2.1.1/mod.ts';

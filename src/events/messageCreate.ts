@@ -13,7 +13,7 @@ import commands from '../commands/_index.ts';
 import functions from '../functions/_index.ts';
 import utils from '../utils.ts';
 
-export const messageCreate = async (bot: Bot, message: Message) => {
+export const messageCreate = (bot: Bot, message: Message) => {
 	// Ignore all messages that are not commands
 	if (message.content.indexOf(config.prefix) !== 0) {
 		// Handle @bot messages
@@ -39,7 +39,10 @@ export const messageCreate = async (bot: Bot, message: Message) => {
 	log(LT.LOG, `Handling ${config.prefix}command message: ${utils.jsonStringifyBig(message)}`);
 
 	// Split into standard command + args format
-	const args = message.content.slice(config.prefix.length).trim().split(/[ \n]+/g);
+	const args = message.content
+		.slice(config.prefix.length)
+		.trim()
+		.split(/[ \n]+/g);
 	const command = args.shift()?.toLowerCase();
 
 	// All commands below here

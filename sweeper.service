@@ -6,7 +6,7 @@ After=network.target
 [Service]
 Type=simple
 PIDFile=/run/deno.pid
-ExecStart=/root/.deno/bin/deno run --allow-write=./logs/ --allow-net .\mod.ts
+ExecStart=/root/.deno/bin/deno run --allow-write=./logs/ --allow-net --allow-import .\mod.ts
 RestartSec=60
 Restart=on-failure
 

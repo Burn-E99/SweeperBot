@@ -6,8 +6,9 @@ import {
 	Message,
 } from '../deps.ts';
 
+// deno-lint-ignore no-explicit-any
 const jsonStringifyBig = (input: any) => {
-	return JSON.stringify(input, (_key, value) => typeof value === 'bigint' ? value.toString() + 'n' : value);
+	return JSON.stringify(input, (_key, value) => (typeof value === 'bigint' ? value.toString() + 'n' : value));
 };
 
 const genericLogger = (level: LT, message: string) => log(level, message);

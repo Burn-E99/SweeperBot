@@ -14,7 +14,7 @@ sweeper_log="/var/log/sweeper.log"
 
 sweeper_chdir="${sweeper_root}"
 command="/usr/sbin/daemon"
-command_args="-f -R 5 -P ${pidfile} -o ${sweeper_log} /usr/local/bin/deno run --allow-write=${sweeper_write} --allow-net ${sweeper_root}/mod.ts"
+command_args="-f -R 5 -P ${pidfile} -o ${sweeper_log} /usr/local/bin/deno run --allow-write=${sweeper_write} --allow-net --allow-import ${sweeper_root}/mod.ts"
 
 load_rc_config sweeper
 run_rc_command "$1"
